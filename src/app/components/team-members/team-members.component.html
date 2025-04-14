@@ -1,0 +1,163 @@
+<div class="main-container">
+    <div class="card-heading">
+        <div class="card-title">
+            <span class="main-heading">Team Members</span><span class="member-bdge">{{membersCount}} users</span>
+        </div>
+        <div class="more-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="none"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-more-vertical svg-icon">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="chart">
+        <div class="table-content">
+            <table>
+                <thead>
+                    <th>
+                        <input type="checkbox" name="" id="" class="checkBoxes" (change)="selectAll($event)">
+                    </th>
+                    @for (item of tableHeaders; track item) {
+                    <th>{{ item.column_name}}</th>
+                    }
+                    <th></th>
+                </thead>
+                <tbody>
+                    @for(data of teamMembersData | paginate: { itemsPerPage: 10, currentPage: p }; track data){
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="" id="" class="checkBoxes" [checked]="data.isChecked"
+                                (change)="singleSelect(data,$event)">
+                        </td>
+                        <td>
+                            <span class="img-name-container">
+                                <div class="circle initials">
+                                    {{ data.name.first_name[0] }}{{ data.name.last_name[0] }}
+                                </div>
+                                <div>
+                                    <p>{{data.name.first_name}} {{data.name.last_name}}<br>&#64; {{data.newemail}}</p>
+                                </div>
+                            </span>
+                        </td>
+                        <td> <span class="status">
+                                <span class="dot"></span> {{data.status}}
+                            </span></td>
+                        <td>{{data.role}}</td>
+                        <td><progress [value]="data.license_used" max="100" class="custom-progress"></progress> <span
+                                class="prog-count">{{data.license_used}}%</span></td>
+                        <td>
+                            @for (item of data.teams; track item) {
+                            <span class="teams" [style.background-color]="item.background_color"
+                                [style.color]="item.text_color" [style.border]="'1px solid'+item.text_color">{{
+                                item.value }}</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="action">
+                                <div class="action-icons deletBtn" (click)="toggleDeletePopup(data)">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                        <defs>
+                                            <style>
+                                                .bg {
+                                                    fill: #585858 !important;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <path class="bg"
+                                            d="M296 432h16a8 8 0 0 0 8-8V152a8 8 0 0 0 -8-8h-16a8 8 0 0 0 -8 8v272a8 8 0 0 0 8 8zm-160 0h16a8 8 0 0 0 8-8V152a8 8 0 0 0 -8-8h-16a8 8 0 0 0 -8 8v272a8 8 0 0 0 8 8zM440 64H336l-33.6-44.8A48 48 0 0 0 264 0h-80a48 48 0 0 0 -38.4 19.2L112 64H8a8 8 0 0 0 -8 8v16a8 8 0 0 0 8 8h24v368a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V96h24a8 8 0 0 0 8-8V72a8 8 0 0 0 -8-8zM171.2 38.4A16.1 16.1 0 0 1 184 32h80a16.1 16.1 0 0 1 12.8 6.4L296 64H152zM384 464a16 16 0 0 1 -16 16H80a16 16 0 0 1 -16-16V96h320zm-168-32h16a8 8 0 0 0 8-8V152a8 8 0 0 0 -8-8h-16a8 8 0 0 0 -8 8v272a8 8 0 0 0 8 8z" />
+                                    </svg>
+                                </div>
+                                <div class="action-icons editBtn" (click)="toggleEditPopup(data)">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                        <defs>
+                                            <style>
+                                                .bg {
+                                                    fill: #585858 !important;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <path class="bg"
+                                            d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1 0 32c0 8.8 7.2 16 16 16l32 0zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+
+                    <tr class="pagination-row">
+                        <td colspan="7">
+                            <div class="btn-blcok">
+                                <div>
+                                    <button (click)="goToPreviousPage()" [disabled]="p === 1" class="page-btn">
+                                        <img src="asset/images/back.png" alt=""> Previous</button>
+                                </div>
+                                <div>
+                                    <pagination-controls (pageChange)="onPageChange($event)" [directionLinks]="false">
+                                    </pagination-controls>
+                                </div>
+                                <div>
+                                    <button (click)="goToNextPage()" [disabled]="p === totalPages" class="page-btn">Next
+                                        <img src="asset/images/next.png" alt="" />
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- EDIT POPUP -->
+    @if(showEditPopup){
+    <div class="edit-tooltip-box checkbox-list">
+
+        <div class="popupHeading row">
+            <span class="editPopupName">Edit</span>
+        </div>
+
+        <div class="edit-body">
+            <span class="editPopupName">Name: {{ editData.name.first_name }} {{ editData.name.last_name }}</span>
+        </div>
+    </div>
+    }
+
+    <!-- DELETE CONFIRMATON POPUP -->
+    @if(deletConfirmationPopup){
+    <div class="delete-tooltip-box checkbox-list">
+        <div class="deleteHeadingBlock row">
+            <div class="deletFirstLabel">Delete</div>
+            <div class="deletsecondLabel">Are you sure you want to delete?</div>
+        </div>
+        <div class="delete-body">
+            <button (click)="cancle()" class="noBtn">Cancel</button>
+            <button (click)="delete()" class="yesBtn">Delete</button>
+
+        </div>
+    </div>
+    }
+
+    <!-- SNACKBAR -->
+    @if(sancbar){
+        <div class="sanckbar-tooltip-box checkbox-list">
+            <div class="deleteHeadingBlock row">
+                <div class="successLabel">
+                    <img src="asset/images/success.png" alt="" />Deleted Successfully</div>
+            </div>
+        </div>
+        }
+
+    <!-- LOADER -->
+    @if(isLoading){
+    <div class="loader-overlay">
+        <div class="spinner"></div>
+    </div>
+    }
+
+</div>

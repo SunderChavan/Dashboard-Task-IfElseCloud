@@ -1,0 +1,38 @@
+<div class="main-container">
+    <div class="card-heading">
+        <div class="card-title-block">
+            <span class="card-main-title">Vendor monitored</span>
+            <span class="card-sub-title">You are using 80% of available spots.</span>
+        </div>
+        <div class="more-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="none"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-more-vertical svg-icon">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+        </div>
+    </div>
+    <hr class="hr-line" />
+    <div class="chart">
+        <div class="chart-block">
+            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels" [colors]="chartOptions.colors"
+                [fill]="chartOptions.fill" [stroke]="chartOptions.stroke" [dataLabels]="chartOptions.dataLabels">
+            </apx-chart>
+        </div>
+        <div class="share-block">
+            <span class="subBlock"><img class="share" src="../../../asset/images/share.png" alt=""> <span class="share-val">10%</span></span>
+        </div>        
+    </div>
+    <div class="footer-block">
+        <span class="firstHeading">You've Almost reached your limit </span>
+        <p class="secondHeading">You have used 80% of your available spots.<br>Upgrade plan to monitor more vendors.</p>
+    </div>
+    <hr class="hr-line" />
+    <div class="btn-block">
+        <button class="upgradeBtn">
+           <img src="../../../asset/images/thunder.png" alt=""> Upgrade Plan</button>
+    </div>
+</div>

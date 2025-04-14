@@ -1,0 +1,112 @@
+
+#chart {
+    max-height: 43vh;
+  }
+
+.more-icon {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.more-icon svg:hover{
+    cursor: pointer;
+}
+
+svg.svg-icon {
+    fill: #808080;
+    stroke: #808080;
+    padding: 10px;
+}
+
+.circle {
+    height: 35px;
+    width: 35px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 7px;
+}
+
+.circle img{
+    height: 24px;
+}
+
+.card-heading {
+    display: flex;
+    position: relative;
+    padding: 10px;
+}
+
+.card-title-block {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.card-main-title {
+    font-size: var(--title-font-size);
+    font-family: Poppins-medium;
+}
+
+.card-sub-title {
+    font-size: 9pt;
+    font-family: Poppins-Medium;
+    color: #00000082;
+}
+
+.vendor-card {
+    height: fit-content !important;
+}
+
+.firstHeading {
+    font-size: 11pt;
+    font-family: Poppins-Medium;
+}
+
+.secondHeading {
+    margin-top: 3px;
+    font-size: 9pt;
+    font-family: Poppins-Medium;
+    color: #00000082;
+}
+
+.footer-block {
+    padding: 10px;
+}
+
+.hr-line {
+    border: 0;
+    height: 1px;
+    background-color: rgb(233 233 234 / 85%);
+    margin: 0;
+    border-radius: 5px;
+    margin-right: auto;
+}
+
+.btn-block {
+    display: flex;
+    justify-content: flex-end;
+    height: 45px;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.upgradeBtn {
+    background: none;
+    border: 1px solid rgba(128, 128, 128, 0.2784313725);
+    border-radius: 5px;
+    height: 30px;
+    font-size: 9pt;
+    font-family: Poppins-Medium;
+    padding: 0 12px;
+    color: #000000c2;
+}
+
+.upgradeBtn:hover{
+    background:#f8f5fe;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

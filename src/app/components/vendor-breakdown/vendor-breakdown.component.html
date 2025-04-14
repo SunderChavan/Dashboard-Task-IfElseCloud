@@ -1,0 +1,36 @@
+<div class="main-container">
+    <div class="card-heading">
+        <div class="circle">
+            <span><img src="../../../asset/images/box.svg" alt=""></span>
+        </div>
+        <div class="card-title-block">
+            <span class="card-main-title">Vendor Breakdown</span>
+            <span class="card-sub-title">Keep track of vendors and their security ratings</span>
+        </div>
+        <div class="more-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="none"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-more-vertical svg-icon">
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+            </svg>
+        </div>
+    </div>
+    <hr class="hr-line" />
+    <div class="chart">
+        <div class="chart-block">
+            <div id="chart">
+                <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+                    [yaxis]="chartOptions.yaxis!" [plotOptions]="chartOptions.plotOptions!"
+                    [legend]="chartOptions.legend!" [colors]="chartOptions.colors!" [fill]="chartOptions.fill!"
+                    [tooltip]="chartOptions.tooltip!" [dataLabels]="chartOptions.dataLabels!">
+                </apx-chart>
+            </div>
+        </div>
+    </div>
+    <hr class="hr-line" />
+    <div class="btn-block">
+        <button class="upgradeBtn">View full report</button>
+    </div>
+</div>

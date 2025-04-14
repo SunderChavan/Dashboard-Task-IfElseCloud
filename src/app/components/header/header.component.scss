@@ -1,0 +1,51 @@
+.main-block {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-block {
+    display: flex;
+    justify-content: flex-end;
+    height: 45px;
+    align-items: center;
+    gap: 15px;
+}
+
+.customizeBtn {
+    background: none;
+    border: 1px solid rgba(128, 128, 128, 0.2784313725);
+    border-radius: 5px;
+    height: 30px;
+    font-size: 9pt;
+    font-family: Poppins-Medium;
+    padding: 0 12px;
+    color: #000000c2;
+    display: flex;
+    align-items: center;
+}
+
+.customizeBtn:hover {
+    background:#f8f5fe;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.customizeBtn img {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.welcom-msg{
+    font-size: 16pt;
+    font-family: Poppins-Medium;
+    font-weight: 500;
+}
+
+.search-icon img{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
